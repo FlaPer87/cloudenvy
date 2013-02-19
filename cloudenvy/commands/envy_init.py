@@ -1,5 +1,5 @@
 import logging
-
+import os
 
 ENVIFILE = """
 project_config:
@@ -39,6 +39,9 @@ class EnvyInit(object):
         return subparser
 
     def run(self, config, args):
+        if os.path.isfile("Envyfile") or os.path.isfile("Envyfile.yml"):
+            raise SystemExit("An Envifile already exists. "
+                             "Please, remove it and run init again.")
         with open("Envyfile.yml", "w") as envy:
             envy.write(ENVIFILE % {"name": args.name, "image": args.image})
         logging.info('New Envyfile created')
