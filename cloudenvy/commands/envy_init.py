@@ -6,11 +6,17 @@ project_config:
   name: %(name)s
   image: %(image)s
 
-  # Optional
+  # Remote VM User
   #remote_user: ubuntu
+
+  # Nova Flavor to use
   #flavor_name: m1.small
-  auto_provision: False
-  provision_scripts:
+
+  # Enable / Disable Auto Provision
+  #auto_provision: False
+
+  # Provision Scripts to execute
+  #provision_scripts:
     #- provision_script.sh
 """
 
